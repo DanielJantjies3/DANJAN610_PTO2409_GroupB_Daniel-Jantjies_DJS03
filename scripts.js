@@ -3,6 +3,18 @@ import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
 let page = 1;
 let matches = books
 
+//UI Rendering and Page Controls
+const BookConnectApp = {
+    // Initialize Application
+    init() {
+        this.renderIntialBooks();
+        this.populateDropdowns();
+        this.applyUserPreferredTheme();
+        this.setupEventListeners();
+    },
+}
+
+
 const starting = document.createDocumentFragment()
 
 for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
